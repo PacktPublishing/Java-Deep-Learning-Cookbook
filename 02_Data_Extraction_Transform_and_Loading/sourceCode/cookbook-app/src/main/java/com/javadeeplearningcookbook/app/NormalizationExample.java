@@ -30,7 +30,7 @@ public class NormalizationExample {
                     .transform(new ConvertToDouble("Score"))
                     .categoricalToInteger("Grade").build();
             RecordReader recordReader = new CSVRecordReader(1, ',');
-            recordReader.initialize(new FileSplit(new File("D:\\code\\packt\\Java-Deep-Learning-Cookbook\\02_Data_Extraction_Transform_and_Loading\\transform-data.csv")));
+            recordReader.initialize(new FileSplit(new File("Path/to/transform-data.csv")));
             RecordReader transformRecordReader = new TransformProcessRecordReader(recordReader,transformProcess);
             DataSetIterator iterator = new RecordReaderDataSetIterator(transformRecordReader,2);
             System.out.println("Before Applying Normalization");
@@ -44,7 +44,7 @@ public class NormalizationExample {
 
 
 
-        } catch(RuntimeException e){
+        } catch(IllegalArgumentException e){
             System.out.println("Please provide proper directory path to transform-data.csv in place of: Path/to/transform-data.csv");
         } catch (IOException e) {
             e.printStackTrace();

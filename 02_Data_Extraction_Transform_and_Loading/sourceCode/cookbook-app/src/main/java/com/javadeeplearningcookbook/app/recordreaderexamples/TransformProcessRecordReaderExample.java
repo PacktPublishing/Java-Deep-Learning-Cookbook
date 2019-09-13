@@ -29,7 +29,7 @@ public class TransformProcessRecordReaderExample {
             recordReader.initialize(new FileSplit(new File("Path/to/transform-data.csv")));
             RecordReader transformRecordReader = new TransformProcessRecordReader(recordReader,transformProcess);
             System.out.println(transformRecordReader.next().get(0).toString());
-        } catch(RuntimeException e){
+        } catch(IllegalArgumentException e){
             System.out.println("Please provide proper directory path to transform-data.csv in place of: Path/to/transform-data.csv");
         } catch (IOException e) {
             e.printStackTrace();
