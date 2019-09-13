@@ -21,9 +21,11 @@ public class ImageRecordReaderExample {
 
         /*
         *  Note:
-        *  Download the image datasets from imagenet for 'n' different labels,
-        *  create 'n' different sub directories and place it under application root.
-        *  This outputs the number of possible outcomes of the model, which is nothing but the existing number of labels.
+        *  1) Download the image datasets from imagenet for a number of different labels (For eg: dogs, cats, bears etc..).
+        *     URL -> http://www.image-net.org/
+        *  2) Create different sub directories for the category of image files that was downloaded.
+        *     The subdirectory folder names indicates the possible outcomes (labels) of the model.
+        *
         *  This is a simple example to check whether your data is properly extracted from source.
         *
         * */
