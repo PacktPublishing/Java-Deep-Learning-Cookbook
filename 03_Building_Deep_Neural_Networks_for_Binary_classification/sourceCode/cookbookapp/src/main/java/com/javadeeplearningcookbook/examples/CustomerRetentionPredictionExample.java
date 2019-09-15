@@ -79,16 +79,6 @@ public class CustomerRetentionPredictionExample {
         return transformProcessRecordReader;
     }
 
-    private static INDArray generateOutput(File file) throws IOException, InterruptedException {
-        final File modelFile = new File("model.zip");
-        final MultiLayerNetwork network = ModelSerializer.restoreMultiLayerNetwork(modelFile);
-        final RecordReader recordReader = generateReader(file);
-        final INDArray array = RecordConverter.toArray(recordReader.next());
-        final NormalizerStandardize normalizerStandardize = ModelSerializer.restoreNormalizerFromFile(modelFile);
-        normalizerStandardize.transform(array);
-        return network.output(array,false);
-
-    }
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -135,7 +125,6 @@ public class CustomerRetentionPredictionExample {
         ModelSerializer.writeModel(multiLayerNetwork,file,true);
         ModelSerializer.addNormalizerToModel(file,dataNormalization);
 
-        //INDArray output = generateOutput(new File("test.csv"));
 
     }
 }
